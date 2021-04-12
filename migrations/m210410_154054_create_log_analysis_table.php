@@ -16,14 +16,14 @@ class m210410_154054_create_log_analysis_table extends Migration
         $this->createTable('{{%log_analysis}}', [
             'id' => Schema::TYPE_PK,
             'ip' => Schema::TYPE_STRING,
-            'dataTime' => Schema::TYPE_DATETIME,
+            'data_time' => Schema::TYPE_DATETIME,
             'url' => Schema::TYPE_TEXT,
-            'uaOs' => Schema::TYPE_STRING,
-            'uaOsVersion' => Schema::TYPE_STRING,
-            'uaBrowser' => Schema::TYPE_STRING,
-            'uaBrowserVersion' => Schema::TYPE_STRING,
-            'uaCPUx64' => Schema::TYPE_BOOLEAN,
-            'uaOrigin' => Schema::TYPE_TEXT,
+            'user_agent_os' => Schema::TYPE_STRING,
+            'user_agent_os_version' => Schema::TYPE_STRING,
+            'user_agent_browser' => Schema::TYPE_STRING,
+            'user_agent_browser_version' => Schema::TYPE_STRING,
+            'user_agent_cpu_x64' => Schema::TYPE_BOOLEAN,
+            'user_agent_origin' => Schema::TYPE_TEXT,
         ]);
     }
 
