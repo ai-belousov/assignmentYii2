@@ -17,7 +17,7 @@ class LogController extends Controller
     private $regex = '/^\S.+?(?= )|(?<=\[).+?(?=\])|(?<= \").+?(?=\")/';
     private $regex_architecture = '/x64_64|AMD64|amd64|Win64|WOW64|x86_64|x86-64|x64;/';
     private $in_date_format = 'd/M/Y:H:i:s T';
-    private $out_date_format = 'Y-m-d H:i:s';
+    private $out_date_format = 'Y-m-d';
 
     /**
      * Добавление данных из файла логов из корня сайта
@@ -79,7 +79,7 @@ class LogController extends Controller
                 }
                 try{
                     echo "\nВыполняется обработка запроса";
-                    Yii::$app->db->createCommand()->batchInsert('log_analysis', ['ip', 'data_time', 'url', 'user_agent_os', 'user_agent_os_version', 'user_agent_browser', 'user_agent_browser_version', 'user_agent_cpu_x64', 'user_agent_origin'], $data)->execute();
+                    Yii::$app->db->createCommand()->batchInsert('log_analysis', ['ip', 'data', 'url', 'os', 'os_version', 'browser', 'browser_version', 'cpu_x64', 'user_agent_origin'], $data)->execute();
                     echo "\nДобавлено: {$count} зап.";
                 } catch (\Exception $e){
                     echo "\nОшибка при добавлении в базу";
